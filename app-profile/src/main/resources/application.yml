@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: "app-profile-practice"
+  profiles:
+    group:
+      "production": "mysql,rabbitmq"
+      "local": "h2,rabbitmq"
+      "aws": "ec2,s3,production"  # ?? ?? profile ?? ??? ?? ??
+default-profile-property: "default-property" # default profile ? ???? ??? property
+---
+spring:
+  config:
+    activate:
+      on-profile: "mysql"
+  datasource:
+    url: "jdbc:mysql://localhost/test"
+    username: "dbuser"
+    password: "dbpass"
+mysql-profile-property: "mysql-property"  # mysql profile ? ???? ??? property
+---
+spring:
+  config:
+    activate:
+      on-profile: "rabbitmq"
+    rabbitmq:
+      host: "localhost"
+      port: 5672
+      username: "admin"
+      password: "secret"
+rabbitmq-profile-property: "rabbitmq-property"  # rabbitmq profile ? ???? ??? property
+---
+spring:
+  config:
+    activate:
+      on-profile: "h2"
+  datasource:
+    url: "jdbc:h2:tcp:localhost/~/h2/db/test"
+    username: sa
+    password:
+h2-profile-property: "h2-property"  # h2 profile ? ???? ??? property
+#---
+## ? ???? spring.profiles.group ? spring.profiles.inclue ? ?? ?? ??? ?? ? ???
+## ?? ??? ???? ? ???...
+#spring:
+#  config:
+#    activate:
+#      on-profile: "aws"
+#  profiles:
+#    include: "ec2,s3"

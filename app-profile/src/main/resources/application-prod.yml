@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    group:
+      "aws": "ec2,s3"
+      "production": "mysql,rabbitmq"
+prod-profile-property: "prod-property" # prod profile 에만 적용되는 임의의 property
+# 이와 같이 해도 적용되지 않음
+# -> 외부 파일들이 하나의 파일(application.yml/properties) 에만 override 된다고함
