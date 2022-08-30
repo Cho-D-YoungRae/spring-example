@@ -11,3 +11,4 @@ Spring 예제 정리
 ## Development
 
 - [Java enum code api](/enum-code)
+  - rest-docs 세팅 포함
