@@ -1,0 +1,32 @@
+= Code
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+:operation-http-request-title: Example request
+:operation-http-response-title: Example response
+
+
+[[code-api]]
+== 코드 조회 API
+
+operation::code/code-api[snippets='http-request,request-parameters,http-response,response-fields']
+
+
+[[code-api-not-found]]
+== 존재하지 않는 코드 조회
+
+존재하지 않는 코드를 조회했을 경우 비어있는 리스트가 반환됩니다.
+
+operation::code/code-api-not-found[snippets='http-request,http-response']
+
+
+[[code-api-get-all]]
+== 코드 전체 조회 API
+
+코드 전체 조회를 할 때는 별도의 파라미터를 포함할 필요가 없습니다.
+
+operation::code/code-api-get-all[snippets='http-request,response-fields,http-response']
+
