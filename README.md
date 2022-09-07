@@ -12,3 +12,4 @@ Spring 예제 정리
 
 - [Java enum code api](/enum-code)
   - rest-docs 세팅 포함
+- [JPA FK 없이 사용해보기](/non-fk)
