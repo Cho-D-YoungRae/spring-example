@@ -1,0 +1,1 @@
+alter table member add column age int default 0;
