@@ -8,6 +8,7 @@ Spring 예제 정리
 - [querydsl 세팅](/querydsl-setting)
 - [testcontainers 세팅](/testcontainers-setting)
 - [rest-docs 세팅](/restdocs-setting)
+- [jacoco 세팅](/jacoco-setting)
 
 ## Development
 
