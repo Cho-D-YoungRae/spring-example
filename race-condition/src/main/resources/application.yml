@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: race-condition
+  profiles:
+    active: embedded
+
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+        ddl-auto: create-drop
+
+logging:
+  level:
+    org.hibernate:
+      SQL: debug
+      type: trace
+
+---
+spring:
+  config:
+    activate:
+      on-profile: embedded
+
+  datasource:
+    url: jdbc:h2:mem:racecondition;MODE=MySQL;
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+---
+spring:
+  config:
+    activate:
+      on-profile: mysql
+
+  datasource:
+    url: jdbc:mysql://localhost:33060/racecondition
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
