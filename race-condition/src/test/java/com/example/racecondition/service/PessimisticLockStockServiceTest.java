@@ -14,10 +14,10 @@ import java.util.concurrent.Executors;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-class SynchronizedStockServiceTest {
+class PessimisticLockStockServiceTest {
 
     @Autowired
-    private SynchronizedStockService stockService;
+    private PessimisticLockStockService stockService;
 
     @Autowired
     private StockRepository stockRepository;
@@ -36,6 +36,7 @@ class SynchronizedStockServiceTest {
                 .build());
 
         // when
+        long startTime = System.currentTimeMillis();
         int threadNum = 100;
         ExecutorService executorService = Executors.newFixedThreadPool(threadNum);
         CountDownLatch latch = new CountDownLatch(threadNum);
@@ -49,12 +50,14 @@ class SynchronizedStockServiceTest {
                 }
             });
         }
-
         latch.await();
+
+        long runningTime = System.currentTimeMillis() - startTime;
 
         // then
         Stock foundStock = stockRepository.findById(stock.getId()).orElseThrow();
         assertThat(foundStock.getQuantity()).isEqualTo(100L);
+        System.out.println("Running time: " + (runningTime / 1000.0));
     }
 
 }
