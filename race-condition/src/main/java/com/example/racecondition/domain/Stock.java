@@ -22,6 +22,10 @@ public class Stock {
     @Column(name = "quantity", nullable = false)
     private Long quantity;
 
+    // Optimistic Lock
+    @Version
+    private Long version;
+
     @Builder
     private Stock(Long productId, Long quantity) {
         this.productId = productId;

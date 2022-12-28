@@ -12,4 +12,7 @@ public interface StockRepository extends JpaRepository<Stock, Long> {
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     Optional<Stock> findWithPessimisticLockById(Long id);
 
+    @Lock(LockModeType.OPTIMISTIC)
+    Optional<Stock> findWithOptimisticLockById(Long id);
+
 }
