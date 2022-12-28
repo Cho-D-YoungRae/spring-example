@@ -25,3 +25,16 @@
 - Lock 을 사용하지 않으므로 Pessimistic Lock 보다 성능상 이점
 - update 실패시 재시도 로직을 추가해야 함
 - 충돌이 자주 발생하면 Pessimistic Lock 이 성능 상 더 좋음
+
+## Named Lock
+
+- 이름을 가진 metadata locking
+- 이름을 가진 lock 을 획득한 후 해제할 때까지 다른 세션은 이 lock 을 획득할 수 없도록 함
+- 실제로 사용할 때는 Data Source 분리해서 사용하는 것이 좋음
+  - 같은 DataSource 사용하면 커넥션 풀이 부족해지는 현상 발생 가능
+  - Entity 도 그대로 사용하지 않고 별도의 JDBC 를 사용하는 등의 방법
+- 분산 Lock 을 구현할 때 주로 사용
+  - Pessimistic Lock 은 time-out 을 구현하기 어려우나 Named Lock 은 쉽게 가능
+- 데이터 삽입 시 정합성을 맞춰야 하는 경우에도 사용 가능
+- 트랜잭션 종료 시 Lock 해제, 세션 관리를 잘 해주어야 함 -> 트랜잭션 종료 시 lock 이 자동으로 해제되지 않음. 별도의 명령어로 해제하거나 선점시간이 끝나야 함.
+- 실제로 사용할 때는 구현 방법 복잡
