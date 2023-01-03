@@ -43,10 +43,10 @@
 
 - spring data redis 의 기본 라이브러리
 - `setnx` 를 활용한 분산락 구현
-- NamedLock 과 유사하나 세션관리 X
 - spin lock 방식
   - Lock 을 획득하려는 쓰레드가 Lock 을 획득할 수 있는지 반복적으로 Lock 획득 시도
   - Lock 획득 재시도 로직 직접 작성
+- time-out 직접 구현
 - spin lock 방식이므로 동시에 많은 쓰레드가 Lock 획득 대기 상태라면 Redis 에 부하를 줄 수 있음
 
 ## Redis - Redisson
