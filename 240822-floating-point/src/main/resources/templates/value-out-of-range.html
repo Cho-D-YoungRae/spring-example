@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Number 범위 밖의 값</title>
+</head>
+<body>
+<div>
+    숫자 타입 응답 값: <span id="number-value"></span>
+</div>
+<div>
+    문자열 타입 응답 값: <span id="string-value"></span>
+</div>
+
+<script>
+    function fetchValue() {
+        fetch('/api/value-out-of-range')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('number-value').textContent = data.value;
+            });
+
+        fetch('/api/value-out-of-range-as-string')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('string-value').textContent = data.value;
+            });
+    }
+
+    window.onload = fetchValue;
+</script>
+</body>
+</html>

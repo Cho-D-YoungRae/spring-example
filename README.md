@@ -15,6 +15,7 @@ Spring 예제 정리
 - [Java enum code api](/enum-code)
 - [JPA FK 없이 사용해보기](/non-fk)
 - [Race condition 해결해보기](/race-condition)
+- [부동소수점 응답 보내기](./240822-floating-point/)
 
 ## Practice
 

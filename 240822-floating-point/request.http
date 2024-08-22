@@ -1,0 +1,2 @@
+### GET value-out-of-range
+GET http://localhost:8080/api/value-out-of-range
